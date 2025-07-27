@@ -21,6 +21,7 @@ jobs:
             sort -V | \
             tail -n 1 | \
             sed 's/\.json$//')
+          echo "version=$version"
 
       - name: Download Java 21
         run: |
