@@ -22,6 +22,7 @@ jobs:
             tail -n 1 | \
             sed 's/\.json$//')
           echo "version=$version"
+          
           docker_version=$(curl -s https://git.tulisiowice.top/Tulis/-/packages/container/tulibuilder/versions | \
             grep -oE 'v[0-9]+\.[0-9]+\.[0-9]' | \
             sort -V | \
