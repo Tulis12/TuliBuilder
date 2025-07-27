@@ -30,7 +30,6 @@ jobs:
           echo "docker_version=$docker_version"
           
           if [ "$(printf '%s\n' "$version" "$docker_version" | sort -V | tail -n 1)" = "$version" ] && [ "$version" != "$docker_version" ]; then
-              echo "env1 ($version) > env2 ($docker_version)"
               echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login git.tulisiowice.top -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
               docker build --build-arg MINECRAFT_VERSION=$version -t git.tulisiowice.top/tulis/tulibuilder:v$version .
               docker push git.tulisiowice.top/tulis/tulibuilder:v$version
