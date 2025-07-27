@@ -28,6 +28,12 @@ jobs:
             sort -V | \
             tail -n 1 | sed 's/^v//')
           echo "docker_version=$docker_version"
+          
+          if [ "$(printf '%s\n' "$version" "$docker_version" | sort -V | tail -n 1)" = "$version" ] && [ "$version" != "$docker_version" ]; then
+              echo "env1 ($version) > env2 ($docker_version)"
+          else
+              echo "env1 ($version) <= env2 ($docker_version)"
+          fi
       - name: Download Java 21
         run: |
           echo $version
