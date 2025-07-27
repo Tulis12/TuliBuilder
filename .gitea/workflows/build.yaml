@@ -26,7 +26,7 @@ jobs:
           docker_version=$(curl -s https://git.tulisiowice.top/Tulis/-/packages/container/tulibuilder/versions | \
             grep -oE 'v[0-9]+\.[0-9]+\.[0-9]' | \
             sort -V | \
-            tail -n 1)
+            tail -n 1 | sed 's/^v//')
           echo "docker_version=$docker_version"
       - name: Download Java 21
         run: |
