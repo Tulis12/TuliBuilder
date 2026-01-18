@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y maven openjdk-21-jdk wget git
 WORKDIR /buildTools
 RUN wget -O BuildTools.jar https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 RUN java -jar BuildTools.jar --rev $MINECRAFT_VERSION
-RUN wget -O maven.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+RUN wget -O maven.tar.gz https://dlcdn.apache.org/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz
 
 WORKDIR /code
 
