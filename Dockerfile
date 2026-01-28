@@ -25,4 +25,4 @@ RUN tar -xzf /root/maven.tar.gz -C /root/ && rm /root/maven.tar.gz
 
 RUN mkdir /code
 WORKDIR /code
-ENTRYPOINT ["/root/apache-maven-3.9.11/bin/mvn", "package"]
+ENTRYPOINT ["/root/apache-maven-3.9.12/bin/mvn", "package"]
