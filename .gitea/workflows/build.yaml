@@ -24,10 +24,12 @@ jobs:
           echo "version=$version"
           
           docker_version=$(curl -s https://git.tulisiowice.top/Tulis/-/packages/container/tulibuilder/versions | \
-            grep -oE 'v[0-9]+\.[0-9]+\.[0-9]' | \
+            grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | \
             sort -V | \
             tail -n 1 | sed 's/^v//')
+
           echo "docker_version=$docker_version"
+
           
           if [ "$(printf '%s\n' "$version" "$docker_version" | sort -V | tail -n 1)" = "$version" ] && [ "$version" != "$docker_version" ]; then
               echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login git.tulisiowice.top -u "${{ secrets.REGISTRY_USERNAME }}" --password-stdin
